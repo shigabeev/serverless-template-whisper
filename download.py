@@ -6,7 +6,7 @@ import whisperx
 def download_model():
     model = whisperx.load_model("large-v2")
     for language_code in ['fr', 'de', 'ru']:
-        model_a, _ = whisperx.load_align_model(language_code=language_code)
+        model_a, _ = whisperx.load_align_model(language_code=language_code, device='cuda')
 
 if __name__ == "__main__":
     download_model()
