@@ -1,13 +1,12 @@
 # In this file, we define download_model
 # It runs during container build time to get model weights built into the container
 
-# In this example: A Huggingface BERT model
-
-import whisper
-import torch
+import whisperx
 
 def download_model():
-    model = whisper.load_model("base")
+    model = whisperx.load_model("large-v2")
+    for language_code in ['fr', 'de', 'ru']:
+        model_a, _ = whisperx.load_align_model(language_code=language_code)
 
 if __name__ == "__main__":
     download_model()
